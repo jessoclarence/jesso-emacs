@@ -19,6 +19,9 @@
  (setq whitespace-style '(face empty tabs lines-tail trailing))
  (global-whitespace-mode t)
 
+; Set font size
+(set-face-attribute 'default nil :height 120)
+
 ; load theme
 (load-theme 'tango-dark t)
 
