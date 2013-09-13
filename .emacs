@@ -14,6 +14,11 @@
 ; Delete trailing whitespace on file save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+; Highlight chars after 80 col limit
+(require 'whitespace)
+ (setq whitespace-style '(face empty tabs lines-tail trailing))
+ (global-whitespace-mode t)
+
 ; load theme
 (load-theme 'tango-dark t)
 
