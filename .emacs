@@ -25,6 +25,9 @@
 ; load theme
 (load-theme 'tango-dark t)
 
+; Higlight matching paren
+(show-paren-mode 1)
+
 ; Save buffer list on exit
 (require 'desktop)
   (desktop-save-mode 1)
