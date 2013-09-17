@@ -85,5 +85,29 @@
 (require 'autopair)
 (autopair-global-mode) ;; to enable in all buffers
 
+;;; Custom code written by me
+
+; Create a func in python that adheres to google py style guide
+(defun jesso-documented-py-func (func-name)
+  (interactive "sEnter function name: ")
+  (setq args-list (list))
+  (setq while-test t)
+  (while (eq while-test t)
+    (setq args-name (read-from-minibuffer "Arg name"))
+    (if (string= "" args-name)
+      (setq while-test nil)
+      (add-to-list 'args-list args-name)))
+  (reverse args-list)
+  (setq final-string (concat "def " func-name "("))
+  (setq i 0)
+  (dolist (arg-name args-list)
+    (progn
+      (if (> i 0)
+        (setq final-string (concat final-string ", ")))
+      (setq final-string (concat final-string arg-name))
+      (incf i)))
+  (setq final-string (concat final-string "):\n" ))
+  (insert-string final-string))
+
 (provide '.emacs)
 ;;; .emacs ends here
